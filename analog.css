@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    box sizing : border-box;
+    font-family: roboto slab;
+    color: #fff;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #212121;
+
+}
+
+.container{
+    position: relative;
+}
+
+
+.clock{
+    width: 300px;
+    height: 300px;
+    border-radius:  50%;
+    background-color: rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.25);
+    box-shadow: 0 0 30px rgba(0,0,0,0.9) ;
+    display:flex;
+    justify-content: center ;
+    align-items: center;
+
+    /* 🎯 Add this part: */
+    background-image: url('tiger.jpg');  /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} 
+ 
+
+
+.clock span{
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i) ));
+    inset: 12px;
+    text-align: center;
+}
+
+.clock span b{
+    transform: rotate(calc(-30deg * var(--i)));
+    display: inline-block;
+    font-size: 20px;
+}
+
+.clock::before{
+    content: '';
+    position:absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 2;
+
+}
+  
+.hand{
+    position: absolute;
+    display:flex ;
+    justify-content: center;
+    align-items: flex-end;
+}
+.hand i{
+    position: absolute;
+    background-color: var(--clr);
+    width: 4px;
+    height: var(--h);
+    border-radius: 8px;
+}
+
+
+
+
+/* Default (dark) theme */
+body.dark {
+    background-color: #212121;
+    color: #ffffff;
+}
+
+body.light {
+    background-color: #f0f0f0;
+    color: #000000;
+}
+
+body.light .clock {
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .clock {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
+}
+
+/* Optional: style the button */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+button#toggleTheme {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+}
+body.light button#toggleTheme {
+    background-color: #ddd;
+    color: black;
+}
